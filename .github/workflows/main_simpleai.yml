@@ -17,9 +17,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_8A870D147FE844779DA75DC5B37FB7C9 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_8406C614B8054AFCA5E396B24A83C81C }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_37D17D5707C44E8B85F67EA7ED924E31 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
           
       # Checkout the code from the repository
       - name: Checkout code
