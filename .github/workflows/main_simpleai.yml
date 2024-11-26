@@ -51,9 +51,11 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
+          with:
+          app-name: simpleai         # Your Azure App Service name
+            client-id: ${{ AZUREAPPSERVICE_CLIENTID_0A1F05D41CFB40D39DFC4C13568DDAC3 }}
+            tenant-id: ${{ AZUREAPPSERVICE_TENANTID_1CD66508FCF64FD5839F0996A4B3364D }}
+            subscription-id: ${{ AZUREAPPSERVICE_SUBSCRIPTIONID_F5DA43EB6B4F4B6BA0A1558B87C73869 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
