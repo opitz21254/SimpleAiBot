@@ -12,6 +12,15 @@ jobs:
     permissions:
       id-token: write
     steps:
+
+      # Login to Azure using the credentials stored in GitHub Secrets
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_8A870D147FE844779DA75DC5B37FB7C9 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_8406C614B8054AFCA5E396B24A83C81C }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_37D17D5707C44E8B85F67EA7ED924E31 }}
+          
       # Checkout the code from the repository
       - name: Checkout code
         uses: actions/checkout@v4
@@ -31,13 +40,6 @@ jobs:
         working-directory: ./SimpleBlazor
         run: dotnet publish -c Release -o ./output
 
-      # Login to Azure using the credentials stored in GitHub Secrets
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_8A870D147FE844779DA75DC5B37FB7C9 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_8406C614B8054AFCA5E396B24A83C81C }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_37D17D5707C44E8B85F67EA7ED924E31 }}
 
       # Deploy the app to Azure Web App using the Azure Web Apps Deploy action
       - name: Deploy to Azure Web App
