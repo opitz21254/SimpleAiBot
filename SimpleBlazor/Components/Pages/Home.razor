@@ -3,11 +3,6 @@
 @using SimpleRuleBlazor.Components.HomePage
 @using SimpleRuleBlazor.Components.Modals
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-<link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
-
-
 
 <WelcomeBanner />
 
@@ -20,19 +15,3 @@
 @* <UserReviews /> *@
 
 <EndingFreeTrialBanner/>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<script>
-    var owlCarousel = $(".owl-carousel");
-    owlCarousel.owlCarousel({
-        loop: true,
-        nav: true,
-        navText: [$('div.w-slider-arrow-left'), $('div.w-slider-arrow-right')],
-        items: 1,
-        dots: true,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        autoplayHoverPause: true
-    });
-</script>
-

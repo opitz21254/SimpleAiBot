@@ -1,84 +1,27 @@
 @page "/test"
+
+@namespace SimpleRuleBlazor.Components.Layout
+@using SimpleRuleBlazor.Components.HomePage
+@using SimpleRuleBlazor.Components.Modals
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
-    
+
 <h1> this is test</h1>
 
-<div class="owl-carousel owl-theme">
-    <div class="item">
-        <div class="c-home_testimonial_entry">
-            <img src="blue-quotes.svg" loading="lazy" alt="" class="u-padding_bottom is--24" />
-            <blockquote class="c-home_quote">ChemQuu has been an invaluable resource during my college journey. Their
-                exceptional learning tools were instrumental in helping me achieve a score in the 90th percentile on my
-                ACS chemistry exam.</blockquote>
-            <h5 class="is--center">
-                <span class="text-color-blue">- Johnny Appleseed, Snow College</span>
-            </h5>
-        </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+    var owlCarousel = $(".owl-carousel");
+    owlCarousel.owlCarousel({
+        loop: true,
+        nav: true,
+        navText: [$('div.w-slider-arrow-left'), $('div.w-slider-arrow-right')],
+        items: 1,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true
+    });
+</script>
 
-    </div>
-    <div class="item">
-        <div class="u-flex_hor_center">
-            <div class="u-flex is--ver">
-                <div class="c-home_testimonial_entry">
-                    <img src="blue-quotes.svg" loading="lazy" alt="" class="u-padding_bottom is--24" />
-                    <blockquote class="c-home_quote">Discovering ChemQuu was a game-changer for my organic chemistry
-                        studies . . . I'm now consistently scoring above average on my tests, all thanks to ChemQuu..
-                    </blockquote>
-                    <h5>
-                        <span class="u-text-color is--salmon">- Michael Thompson, Georgia Institute of Technology</span>
-                    </h5>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="item">
-        <div class="u-flex_hor_center">
-            <div class="u-flex is--ver">
-                <div class="c-home_testimonial_entry">
-                    <img src="blue-quotes.svg" loading="lazy" alt="" class="u-padding_bottom is--24" />
-                    <blockquote class="c-home_quote">Thanks to ChemQuu, I've gone from dreading chemistry to genuinely
-                        enjoying it. The interactive videos and personalized learning paths have made complex concepts
-                        easier to grasp and retain. It's become my secret weapon for acing exams.</blockquote>
-                    <h5 class="is--center">
-                        <span class="u-text-color is--seagreen">- Emily Patel, University of California,
-                            Berkeleyl</span>
-                    </h5>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="item">
-        <div class="u-flex_hor_center">
-            <div class="u-flex is--ver">
-                <div class="c-home_testimonial_entry">
-                    <img src="blue-quotes.svg" loading="lazy" alt="" class="u-padding_bottom is--24" />
-                    <blockquote class="c-home_quote">ChemQuu's blend of generative AI and visual learning tools has
-                        revolutionized how I approach my chemistry studies. The detailed explanations and engaging
-                        content have helped me achieve a deeper understanding of the material, making learning not just
-                        effective but enjoyable.</blockquote>
-                    <h5 class="is--center">
-                        <span class="text-color-blue">- David Kim, University of Toronto</span>
-                    </h5>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="item">
-        <div class="u-flex_hor_center">
-            <div class="u-flex is--ver">
-                <div class="c-home_testimonial_entry">
-                    <img src="blue-quotes.svg" loading="lazy" alt="" class="u-padding_bottom is--24" />
-                    <blockquote class="c-home_quote">I was struggling with balancing chemical equations until I found
-                        ChemQuu. Their innovative approach to education, combining cutting-edge AI with compelling
-                        visual storytelling, has made all the difference. My grades have improved dramatically, and I
-                        feel more prepared for my future in the field of chemistry.</blockquote>
-                    <h5 class="is--center">
-                        <span class="u-text-color is--salmon">- Sofia Hernandez, Imperial College London</span>
-                    </h5>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
