@@ -12,23 +12,19 @@
     </div>
     <div data-duration-in="300" data-duration-out="100" class="tabs w-tabs">
         <div class="c-tabs_menu w-tab-menu">
-            <a data-w-tab="Medical" class="c-program_tab_med w-inline-block w-tab-link w--current"
-                @onclick=setCurrentPaneMedical>
-                <div>
-                    <span class="medical">Focus</span>
-                </div>
+            <a data-w-tab="Medical" class=@medicalClassTopSelector @onclick=setCurrentPaneMedical>
+                <div>Focus</div>
             </a>
-            <a data-w-tab="MCAT" class="c-program_tab_mcat w-inline-block w-tab-link" @onclick=setCurrentPaneMcat>
+            <a data-w-tab="MCAT" class=@mcatClassTopSelector @onclick=setCurrentPaneMcat>
                 <div>Time</div>
             </a>
-            <a data-w-tab="PA" class="c-program_tab_pa w-inline-block w-tab-link" @onclick=setCurrentPanePa>
+            <a data-w-tab="PA" class=@paClassTopSelector @onclick=setCurrentPanePa>
                 <div>Fatiuge</div>
             </a>
-            <a data-w-tab="Pharm" class="c-program_tab_pharm w-inline-block w-tab-link" @onclick=setCurrentPanePharm>
-                <div>Melatonin Cycle</div>
+            <a data-w-tab="Pharm" class=@pharmClassTopSelector @onclick=setCurrentPanePharm>
+                <div>Melatonin</div>
             </a>
-            <a data-w-tab="Nursing" class="c-program_tab_nursing w-inline-block w-tab-link"
-                @onclick=setCurrentPaneNursing>
+            <a data-w-tab="Nursing" class=@nursingClassTopSelector @onclick=setCurrentPaneNursing>
                 <div>Economical</div>
             </a>
         </div>
@@ -107,11 +103,11 @@
         pharmClass = "w-tab-pane";
         nursingClass = "w-tab-pane";
 
-        string medicalClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
-        string mcatClassTopSelector = "c-program_tab_med w-inline-block w-tab-link w--current";
-        string paClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
-        string pharmClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
-        string nursingClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
+        medicalClassTopSelector = "c-program_tab_med w-inline-block w-tab-link w--current";
+        mcatClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
+        paClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
+        pharmClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
+        nursingClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
     }
 
     void setCurrentPaneMcat()
@@ -123,11 +119,11 @@
         pharmClass = "w-tab-pane";
         nursingClass = "w-tab-pane";
 
-        string medicalClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
-        string mcatClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
-        string paClassTopSelector = "c-program_tab_med w-inline-block w-tab-link w--current";
-        string pharmClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
-        string nursingClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
+        medicalClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
+        mcatClassTopSelector = "c-program_tab_med w-inline-block w-tab-link w--current";
+        paClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
+        pharmClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
+        nursingClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
     }
 
     void setCurrentPanePa()
@@ -139,11 +135,11 @@
         pharmClass = "w-tab-pane";
         nursingClass = "w-tab-pane";
 
-        string medicalClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
-        string mcatClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
-        string paClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
-        string pharmClassTopSelector = "c-program_tab_med w-inline-block w-tab-link w--current";
-        string nursingClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
+        medicalClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
+        mcatClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
+        paClassTopSelector = "c-program_tab_med w-inline-block w-tab-link w--current";
+        pharmClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
+        nursingClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
     }
 
     void setCurrentPanePharm()
@@ -155,11 +151,11 @@
         pharmClass = "w-tab-pane w--tab-active";
         nursingClass = "w-tab-pane";
 
-        string medicalClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
-        string mcatClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
-        string paClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
-        string pharmClassTopSelector = "c-program_tab_med w-inline-block w-tab-link w--current";
-        string nursingClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
+        medicalClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
+        mcatClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
+        paClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
+        pharmClassTopSelector = "c-program_tab_med w-inline-block w-tab-link w--current";
+        nursingClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
     }
 
     void setCurrentPaneNursing()
@@ -171,11 +167,11 @@
         pharmClass = "w-tab-pane";
         nursingClass = "w-tab-pane w--tab-active";
 
-        string medicalClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
-        string mcatClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
-        string paClassTopSelector = "c-program_tab_med w-inline-block w-tab-link w--current";
-        string pharmClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
-        string nursingClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
+        medicalClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
+        mcatClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
+        paClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
+        pharmClassTopSelector = "c-program_tab_mcat w-inline-block w-tab-link";
+        nursingClassTopSelector = "c-program_tab_med w-inline-block w-tab-link w--current";
     }
 
     //Code To Toggle First Pane
@@ -186,4 +182,7 @@
     {
         showSimple = !showSimple;
     }
+
+    
 }
+   
