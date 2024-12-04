@@ -101,24 +101,6 @@
 		window.console.log = function () { };
 		window.console.warn = function () { };
 		window.console.error = function () { };
-		function store_engine(options) {
-			return {
-				name: "Tello.com",
-				root_url: decodeURI(""),
-				is_ssl: true,
-				geoip: { "continent_code": "NA", "country_code": "US", "country_name": "United States", "is_in_eu": false, "region": "UT", "city": "Ephraim", "postal_code": "84627", "latitude": 39.3607, "longitude": -111.5779, "time_zone": "America\/Denver", "metro_code": 770, "isp": null, "organization": null },
-				currency: { "id": "1", "name": "United States Dollars", "code": "USD", "numeric_code": "840", "symbol": "$", "minor_symbol": "\u00a2", "exponent": "2", "rate": "1.0000000000" },
-				hide_currency_symbol: false,
-				rate_precision: "1",
-				sc_hash: "default",
-				has_web_notifications: { "apiKey": "AIzaSyBE9b2sUSRSbA_Zo-7ImiGLOiwFYrEvF0k", "authDomain": "fir-tello.firebaseapp.com", "databaseURL": "https:\/\/fir-tello.firebaseio.com", "projectId": "firebase-tello", "storageBucket": "firebase-tello.appspot.com", "messagingSenderId": "996962941378", "appId": "1:996962941378:web:a858315b34916ae0", "android_channel_id": "Keepcalling notifications" },
-				user_is_logged_in: false,
-				user_consent: { "functionality_storage": "granted", "security_storage": "granted", "analytics_storage": "granted", "ad_personalization": "granted", "ad_user_data": "granted", "ad_storage": "granted" },
-				sw_params: { "ga_uid": "default", "ga_id": "UA-20140177-10", "ga_store": "tello.com", "ga_ua": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36" },
-				is_new_validator: false
-			};
-		}
-		var STORE = new store_engine({});
 		var _url_site_name = "tello.com";
 		var _url_root_url = decodeURI("");
 		var _url_is_ssl = true;
