@@ -4,6 +4,11 @@
     <ProjectReference Include="..\SimpleLogic\SimpleLogic.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Authentication.WebAssembly.Msal" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Identity.Web" Version="3.4.0" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
