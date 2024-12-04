@@ -566,11 +566,14 @@
 											</li>
 											<li class='d-flex justify-content-center'>
 												<button type='submit' class='social google width80 display_block'
-													value='google' name='login_type'>
+													value='google' name='login_type' @onclick="SignIn">
 													<svg viewBox='0 0 16 16' class='icon'>
 														<use xlink:href='#svg_Social-Login-google'></use>
 													</svg>
 													Sign in with Google </button>
+													@code {
+   														 private async Task SignIn() => await AuthenticationService.SignIn();
+													}
 											</li>
 											<li class='d-flex justify-content-center'>
 												<button type='submit' class='apple_login width80 social' value='apple'
