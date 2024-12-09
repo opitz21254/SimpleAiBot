@@ -1,5 +1,4 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
-EXPOSE 8080 
 WORKDIR /App
 
 # Copy everything
@@ -12,6 +11,7 @@ RUN dotnet publish -c Release -o out
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
+EXPOSE 8080 
 WORKDIR /App/SimpleBlazor
 COPY --from=build-env /App/out .
 ENTRYPOINT ["dotnet", "SimpleBlazor.dll"]
