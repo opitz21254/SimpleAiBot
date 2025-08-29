@@ -19,7 +19,7 @@ class Program
         TwilioClient.Init(accountSid, authToken);
 
         // Example: Receive and process an incoming SMS
-        string userMessage = "This is a test. Write back with only \"TEST\". Don't include anything else"; // Replace with input from Twilio webhook
+        string userMessage = "This is a test. Write back with only \"TEST 1/1/2025\". Don't include anything else"; // Replace with input from Twilio webhook
         Console.WriteLine($"User Message: {userMessage}");
 
         // Call Perplexity API
