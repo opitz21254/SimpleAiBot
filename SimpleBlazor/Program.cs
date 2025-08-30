@@ -1,4 +1,4 @@
-//
+// Fully working, just use '''PERPLESITY_AI_API='random_api_key_in_single_quotes' dotnet run''' in terminal to run locally
 
 using System.Text;
 using System.Text.Json;
