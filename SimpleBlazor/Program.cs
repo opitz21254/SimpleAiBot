@@ -2,6 +2,8 @@
 
 using System.Text;
 using System.Text.Json;
+using System.Linq;
+using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Extensions.DependencyInjection;
@@ -88,7 +90,7 @@ app.MapPost(
         }
 
         // Keep replies SMS-friendly
-        reply = TrimForSms(reply, 300);
+        reply = TrimForSms(StripSourceCitations(reply), 300);
         var twiml = $"<Response><Message>{XmlEscape(reply)}</Message></Response>";
         return Results.Content(twiml, "application/xml");
     }
@@ -112,6 +114,21 @@ static string XmlEscape(string text)
     return text.Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;");
 }
 
+static string StripSourceCitations(string text)
+{
+    if (string.IsNullOrWhiteSpace(text))
+        return text ?? string.Empty;
+
+    var withoutCitations = Regex.Replace(text, "\\[\\d+\\]", " ");
+
+    return string.Join(
+        " ",
+        withoutCitations
+            .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+            .Select(segment => segment.Trim())
+    );
+}
+
 static async Task<string> GetPerplexityReplyAsync(
     HttpClient http,
     string apiKey,
@@ -123,7 +140,7 @@ static async Task<string> GetPerplexityReplyAsync(
 
     var payload = new
     {
-        model = "llama-3.1-sonar-large-128k-online",
+        model = "sonar-pro",
         temperature = 0.3,
         max_tokens = 240,
         messages = new object[]
