@@ -7,6 +7,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Authentication.WebAssembly.Msal" Version="9.0.0" />
     <PackageReference Include="Microsoft.Identity.Web" Version="3.4.0" />
+    <PackageReference Include="Twilio" Version="7.13.2" />
+    <PackageReference Include="Twilio.AspNet.Core" Version="8.1.1" />
   </ItemGroup>
 
   <PropertyGroup>

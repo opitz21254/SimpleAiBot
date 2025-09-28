@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Identity.Web;
 using SimpleBlazor.Components;
+using SimpleBlazor.Voice;
+using Twilio;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +20,8 @@ builder
 
 // Add services to the container.
 builder.Services.AddRazorComponents().AddInteractiveServerComponents();
+builder.Services.Configure<ForwardingOptions>(builder.Configuration.GetSection("Forwarding"));
+builder.Services.AddSingleton<CallForwardingService>();
 
 var app = builder.Build();
 
@@ -35,6 +39,37 @@ app.UseStaticFiles();
 app.UseAntiforgery();
 
 app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
+
+// --- Twilio voice call forwarding ---
+var twilioAccountSid =
+    builder.Configuration["Twilio:AccountSid"]
+    ?? Environment.GetEnvironmentVariable("TWILIO_ACCOUNT_SID");
+var twilioAuthToken =
+    builder.Configuration["Twilio:AuthToken"]
+    ?? Environment.GetEnvironmentVariable("TWILIO_AUTH_TOKEN");
+
+if (!string.IsNullOrWhiteSpace(twilioAccountSid) && !string.IsNullOrWhiteSpace(twilioAuthToken))
+{
+    TwilioClient.Init(twilioAccountSid, twilioAuthToken);
+}
+else
+{
+    Console.WriteLine(
+        "Twilio credentials missing (Twilio:AccountSid / Twilio:AuthToken or env vars). Voice REST calls will be skipped."
+    );
+}
+
+app.MapPost(
+    "/voice/incoming",
+    async (HttpRequest request, CallForwardingService forwarding) =>
+    {
+        var form = await request.ReadFormAsync();
+        var inboundTwilioNumber = form["To"].ToString();
+
+        var voiceResponse = forwarding.BuildForwardingResponse(inboundTwilioNumber);
+        return Results.Content(voiceResponse.ToString(), "application/xml");
+    }
+);
 
 // --- SMS chatbot backed by Perplexity ---
 // Configuration: read from env vars or process config
