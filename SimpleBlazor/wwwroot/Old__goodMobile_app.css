@@ -1,3 +1,4 @@
+@supports (display: supports-not) {
 .dropdown .dropdown-list {
     display: block !important; 
 }
@@ -7934,9 +7935,6 @@ hover {
         grid-row-start: 1
     }
 }
-
-
-
-
+}
 
 

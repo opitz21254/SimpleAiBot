@@ -206,6 +206,10 @@ label {
     font-weight: 700
 }
 
+#main-content:focus {
+    outline: none;
+}
+
 .w-container {
     margin-left: auto;
     margin-right: auto;
