@@ -1195,6 +1195,18 @@ li {
     text-align: center
 }
 
+.c-program_stats__cta {
+    grid-column: 1/-1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
 .c-program_features {
     width: 700px
 }
@@ -1509,6 +1521,17 @@ li {
     color: #fff;
     line-height: 1.5rem;
     font-weight: 500
+}
+
+.badge-large.is--available {
+    display: inline-block;
+    padding: 8px 24px;
+    border-radius: 50px;
+    background-color: #00a28c;
+    font-family: Gotham,sans-serif;
+    color: #fff;
+    line-height: 1.5rem;
+    font-weight: 500;
 }
 
 .c-program_tab_med {
