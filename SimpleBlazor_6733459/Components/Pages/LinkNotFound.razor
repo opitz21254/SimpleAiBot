@@ -1,0 +1,17 @@
+@page "/link-not-found/{linkName}"
+
+@code {
+    [Parameter]
+    public string linkName { get; set; }
+
+    protected override void OnInitialized()
+    {
+        // Additional logic if needed
+    }
+}
+<div class="u-background-light-blue">
+    <h3> <br> <br> You clicked on '@linkName', but it isn't created yet. <br> <br> </h3>
+    <p>Please email <a href="mailto:simplerule.ai@gmail.com">brennanopitz@gmail.com</a> to request this link or page.
+    </p>
+    <p> Thanks for being patient with us!  <br> <br> <br> <br> </p>
+</div>

@@ -1,0 +1,144 @@
+@namespace SimpleRuleBlazor.Components.HomePage
+@using System
+@using System.Threading
+@using System.Collections.Generic
+@implements IDisposable
+
+@if (_testimonials.Count > 0)
+{
+    <div class="u-margin-y is--48">
+        <div class="w-container">
+            <section class="c-home_testimonials" role="region" aria-live="polite" aria-label="Simple Rule member testimonials">
+                @if (_testimonials.Count > 1)
+                {
+                    <button type="button" class="c-home_testimonials-arrow is--left" @onclick="ShowPrevious" aria-label="Show previous testimonial">
+                        <span aria-hidden="true">&#x2039;</span>
+                    </button>
+                }
+
+                <div class="c-home_testimonials-track" style="@TrackTransformStyle">
+                    @for (var index = 0; index < _testimonials.Count; index++)
+                    {
+                        var testimonial = _testimonials[index];
+                        var isActive = _activeIndex == index;
+                        <article class="c-home_testimonial" aria-hidden="@(!isActive)" aria-current="@(isActive ? "true" : null)">
+                            <div class="c-home_testimonial_entry">
+                                <img src="images/quotations-blue.svg" alt="" class="c-home_testimonial_icon" loading="lazy" />
+                                <blockquote class="c-home_quote">@testimonial.Quote</blockquote>
+                                <h5 class="c-home_testimonial_name">@testimonial.Attribution</h5>
+                            </div>
+                        </article>
+                    }
+                </div>
+
+                @if (_testimonials.Count > 1)
+                {
+                    <button type="button" class="c-home_testimonials-arrow is--right" @onclick="ShowNext" aria-label="Show next testimonial">
+                        <span aria-hidden="true">&#x203A;</span>
+                    </button>
+
+                    <div class="c-home_testimonials-dots" role="tablist" aria-label="Select testimonial">
+                        @for (var index = 0; index < _testimonials.Count; index++)
+                        {
+                            var isActive = _activeIndex == index;
+                            <button type="button"
+                                    class="c-home_testimonials-dot @(isActive ? "is--active" : string.Empty)"
+                                    role="tab"
+                                    aria-selected="@isActive"
+                                    aria-label=$"Show testimonial @(index + 1)"
+                                    @onclick="(() => GoTo(index))">
+                            </button>
+                        }
+                    </div>
+                }
+            </section>
+        </div>
+    </div>
+}
+
+@code {
+    private static readonly TimeSpan AutoAdvanceInterval = TimeSpan.FromSeconds(7);
+
+    private readonly IReadOnlyList<Testimonial> _testimonials = new List<Testimonial>
+    {
+        new(
+            "Simple Rule keeps my day moving. A quick text during rounds gets me the answer I need without ever unlocking a browser.",
+            "- Johnny Appleseed, Snow College"),
+        new(
+            "Simple Rule is the study partner I was missing. I text questions on the train and arrive on campus already ahead.",
+            "- Michael Thompson, Georgia Institute of Technology"),
+        new(
+            "I went from juggling tabs to effortless focus. Simple Rule brings research, reminders, and optimism right to my Light Phone.",
+            "- Emily Patel, University of California, Berkeley"),
+        new(
+            "Simple Rule helps my team stay aligned while staying offline. We collaborate through quick prompts and keep our attention where it matters.",
+            "- Sofia Hernandez, Imperial College London")
+    };
+
+    private int _activeIndex;
+    private Timer? _autoAdvanceTimer;
+
+    private string TrackTransformStyle => $"transform: translateX(-{_activeIndex * 100}%);";
+
+    protected override void OnInitialized()
+    {
+        if (_testimonials.Count > 1)
+        {
+            _autoAdvanceTimer = new Timer(AutoAdvance, null, AutoAdvanceInterval, AutoAdvanceInterval);
+        }
+    }
+
+    private void AutoAdvance(object? _)
+    {
+        InvokeAsync(() =>
+        {
+            _activeIndex = (_activeIndex + 1) % _testimonials.Count;
+            StateHasChanged();
+        });
+    }
+
+    private void ShowPrevious()
+    {
+        if (_testimonials.Count == 0)
+        {
+            return;
+        }
+
+        _activeIndex = (_activeIndex - 1 + _testimonials.Count) % _testimonials.Count;
+        RestartAutoAdvance();
+    }
+
+    private void ShowNext()
+    {
+        if (_testimonials.Count == 0)
+        {
+            return;
+        }
+
+        _activeIndex = (_activeIndex + 1) % _testimonials.Count;
+        RestartAutoAdvance();
+    }
+
+    private void GoTo(int index)
+    {
+        if (index == _activeIndex || index < 0 || index >= _testimonials.Count)
+        {
+            return;
+        }
+
+        _activeIndex = index;
+        RestartAutoAdvance();
+    }
+
+    private void RestartAutoAdvance()
+    {
+        _autoAdvanceTimer?.Change(AutoAdvanceInterval, AutoAdvanceInterval);
+    }
+
+    public void Dispose()
+    {
+        _autoAdvanceTimer?.Dispose();
+    }
+
+    private sealed record Testimonial(string Quote, string Attribution);
+}
