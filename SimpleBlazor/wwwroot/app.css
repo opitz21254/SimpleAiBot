@@ -226,18 +226,301 @@ label {
     clear: both
 }
 
+.w-container .w-row {
+    margin-left: -10px;
+    margin-right: -10px
+}
+
+.w-row:before,
+.w-row:after {
+    content: " ";
+    display: table;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-column-end: 2;
+    grid-row-end: 2
+}
+
+.w-row:after {
+    clear: both
+}
+
+.w-row .w-row {
+    margin-left: 0;
+    margin-right: 0
+}
+
+.w-col {
+    position: relative;
+    float: left;
+    width: 100%;
+    min-height: 1px;
+    padding-left: 10px;
+    padding-right: 10px
+}
+
+.w-col .w-col {
+    padding-left: 0;
+    padding-right: 0
+}
+
+.w-col-1 {
+    width: 8.33333333%
+}
+
+.w-col-2 {
+    width: 16.66666667%
+}
+
+.w-col-3 {
+    width: 25%
+}
+
+.w-col-4 {
+    width: 33.33333333%
+}
+
+.w-col-5 {
+    width: 41.66666667%
+}
+
+.w-col-6 {
+    width: 50%
+}
+
+.w-col-7 {
+    width: 58.33333333%
+}
+
+.w-col-8 {
+    width: 66.66666667%
+}
+
+.w-col-9 {
+    width: 75%
+}
+
+.w-col-10 {
+    width: 83.33333333%
+}
+
+.w-col-11 {
+    width: 91.66666667%
+}
+
+.w-col-12 {
+    width: 100%
+}
+
+.w-hidden-main {
+    display: none !important
+}
+
 @media screen and (max-width: 991px) {
     .w-container {
-        max-width:728px
+        max-width: 728px
     }
 
+    .w-hidden-main {
+        display: inherit !important
+    }
+
+    .w-hidden-medium {
+        display: none !important
+    }
+
+    .w-col-medium-1 {
+        width: 8.33333333%
+    }
+
+    .w-col-medium-2 {
+        width: 16.66666667%
+    }
+
+    .w-col-medium-3 {
+        width: 25%
+    }
+
+    .w-col-medium-4 {
+        width: 33.33333333%
+    }
+
+    .w-col-medium-5 {
+        width: 41.66666667%
+    }
+
+    .w-col-medium-6 {
+        width: 50%
+    }
+
+    .w-col-medium-7 {
+        width: 58.33333333%
+    }
+
+    .w-col-medium-8 {
+        width: 66.66666667%
+    }
+
+    .w-col-medium-9 {
+        width: 75%
+    }
+
+    .w-col-medium-10 {
+        width: 83.33333333%
+    }
+
+    .w-col-medium-11 {
+        width: 91.66666667%
+    }
+
+    .w-col-medium-12 {
+        width: 100%
+    }
+
+    .w-col-stack {
+        width: 100%;
+        left: auto;
+        right: auto
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .w-hidden-main,
+    .w-hidden-medium {
+        display: inherit !important
+    }
+
+    .w-hidden-small {
+        display: none !important
+    }
+
+    .w-container .w-row,
+    .w-row {
+        margin-left: 0;
+        margin-right: 0
+    }
+
+    .w-col {
+        width: 100%;
+        left: auto;
+        right: auto
+    }
+
+    .w-col-small-1 {
+        width: 8.33333333%
+    }
+
+    .w-col-small-2 {
+        width: 16.66666667%
+    }
+
+    .w-col-small-3 {
+        width: 25%
+    }
+
+    .w-col-small-4 {
+        width: 33.33333333%
+    }
+
+    .w-col-small-5 {
+        width: 41.66666667%
+    }
+
+    .w-col-small-6 {
+        width: 50%
+    }
+
+    .w-col-small-7 {
+        width: 58.33333333%
+    }
+
+    .w-col-small-8 {
+        width: 66.66666667%
+    }
+
+    .w-col-small-9 {
+        width: 75%
+    }
+
+    .w-col-small-10 {
+        width: 83.33333333%
+    }
+
+    .w-col-small-11 {
+        width: 91.66666667%
+    }
+
+    .w-col-small-12 {
+        width: 100%
+    }
 }
 
 @media screen and (max-width: 479px) {
     .w-container {
-        max-width:none
+        max-width: none
     }
 
+    .w-hidden-main,
+    .w-hidden-medium,
+    .w-hidden-small {
+        display: inherit !important
+    }
+
+    .w-hidden-tiny {
+        display: none !important
+    }
+
+    .w-col {
+        width: 100%
+    }
+
+    .w-col-tiny-1 {
+        width: 8.33333333%
+    }
+
+    .w-col-tiny-2 {
+        width: 16.66666667%
+    }
+
+    .w-col-tiny-3 {
+        width: 25%
+    }
+
+    .w-col-tiny-4 {
+        width: 33.33333333%
+    }
+
+    .w-col-tiny-5 {
+        width: 41.66666667%
+    }
+
+    .w-col-tiny-6 {
+        width: 50%
+    }
+
+    .w-col-tiny-7 {
+        width: 58.33333333%
+    }
+
+    .w-col-tiny-8 {
+        width: 66.66666667%
+    }
+
+    .w-col-tiny-9 {
+        width: 75%
+    }
+
+    .w-col-tiny-10 {
+        width: 83.33333333%
+    }
+
+    .w-col-tiny-11 {
+        width: 91.66666667%
+    }
+
+    .w-col-tiny-12 {
+        width: 100%
+    }
 }
 
 /* Dropdowns */
@@ -1284,7 +1567,7 @@ li {
 }
 
 .u-background-blob {
-    background-image: url("https://web.archive.org/web/20210513004155im_/https://assets.website-files.com/5ff7c807d65e6f24ae2a3369/604f81dae8793a0a6ead4b4d_u-background-blob.jpg");
+    background-image: url("/images/background-blob.jpg");
     background-position: 0 0;
     background-size: cover;
     background-repeat: no-repeat;
@@ -1632,7 +1915,7 @@ li {
     display: none;
     max-height: 625px;
     padding-top: 56px;
-    background-image: url("https://web.archive.org/web/20210513004155im_/https://assets.website-files.com/5ff7c807d65e6f24ae2a3369/604f813a930adb3f7926ab8f_landing-hero%401920.jpg");
+    background-image: url("/images/landing-hero-1920.jpg");
     background-position: 0 0;
     background-size: cover
 }
@@ -2343,7 +2626,7 @@ li {
 
     .home-hero-mobile {
         display: block;
-        background-image: url("https://web.archive.org/web/20210513004155im_/https://assets.website-files.com/5ff7c807d65e6f24ae2a3369/6075a6b19e4d3e324b078e2c_landing-hero%40375%20(1).jpg");
+        background-image: url("/images/landing-hero-375.jpg");
         background-size: cover
     }
 
