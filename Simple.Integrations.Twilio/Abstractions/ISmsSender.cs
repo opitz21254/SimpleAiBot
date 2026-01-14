@@ -1,0 +1,7 @@
+
+using SimpleLogic;
+
+class ISmsSender
+{
+    
+}

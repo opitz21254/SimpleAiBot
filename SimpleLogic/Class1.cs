@@ -15,7 +15,7 @@ class Program
     {
         // Initialize Twilio
         string accountSid = "${{ secrets.TWILIO_SID }}";
-        string authToken = "${{ secrets.TWILIO_AUTHTOKEN }}";
+        string accountSid = "${{ secrets.TWILIO_SID }}";
         TwilioClient.Init(accountSid, authToken);
 
         // Example: Receive and process an incoming SMS
